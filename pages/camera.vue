@@ -1,6 +1,6 @@
 <template>
     <div id="app">
-        <div><video ref="video" id="video" width="640" height="480" autoplay></video></div>
+        <div><video ref="video" id="video" width="auto" height="480" autoplay></video></div>
         <div>
         <at-button v-on:click="textDetection()" >Text Detection</at-button>
         <at-button style="margin-left: 10px;" type="primary" v-on:click="labelDetection()" >Label Detection</at-button>
@@ -90,7 +90,7 @@
     #app {
         text-align: center;
         color: #2c3e50;
-        margin-top: 60px;
+        margin-top: 30px;
     }
     #video {
         background-color: #000000;
