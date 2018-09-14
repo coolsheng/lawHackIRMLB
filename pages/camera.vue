@@ -1,9 +1,7 @@
 <template>
     <div id="app">
         <div>
-        <input type="file" accept="image/*" capture="camera">
-            <!-- <video ref="video" id="video" width="auto" height="480" autoplay></video> -->
-        <input type="file" accept="video/*" capture="camera">
+            <video ref="video" id="video" width="auto" height="480" autoplay></video>
 </div>
         <div>
         <at-button v-on:click="textDetection()" >Text Detection</at-button>
