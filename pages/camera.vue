@@ -65,7 +65,7 @@
 
     async textDetection(){
         let image = this.capture();
-        let text = await this.$axios.$get("https://us-east1-lawhack-215604.cloudfunctions.net/ImageFunction",{
+        let text = await this.$axios.$post("http://localhost:4000/text",{
             image: {
                 content: decodeURIComponent(image)
             }
