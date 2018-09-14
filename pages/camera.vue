@@ -49,7 +49,7 @@
     async labelDetection(){
         let image = this.capture();
         // console.log(image)
-        let labels = await this.$axios.$post("http://localhost:4000/label", {
+        let labels = await this.$axios.$post("https://us-central1-lawhack-215604.cloudfunctions.net/function-2", {
             image: {
                 content: decodeURIComponent(image)
             }
@@ -61,11 +61,12 @@
         });
         str += '</ul>'
         document.getElementById("result").innerHTML = str;
+        console.log(labels);
         },
 
     async textDetection(){
         let image = this.capture();
-        let text = await this.$axios.$post("http://localhost:4000/text",{
+        let text = await this.$axios.$post("https://us-central1-lawhack-215604.cloudfunctions.net/function-1",{
             image: {
                 content: decodeURIComponent(image)
             }
