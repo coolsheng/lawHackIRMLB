@@ -1,6 +1,10 @@
 <template>
     <div id="app">
-        <div><video ref="video" id="video" width="auto" height="480" autoplay></video></div>
+        <div>
+        <input type="file" accept="image/*" capture="camera">
+            <!-- <video ref="video" id="video" width="auto" height="480" autoplay></video> -->
+        <input type="file" accept="video/*" capture="camera">
+</div>
         <div>
         <at-button v-on:click="textDetection()" >Text Detection</at-button>
         <at-button style="margin-left: 10px;" type="primary" v-on:click="labelDetection()" >Label Detection</at-button>
