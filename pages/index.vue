@@ -6,10 +6,10 @@
         lawhack
       </h1>
       <h2 class="subtitle">
-        doing this to win
+        Image Reconition App
       </h2>
       <nuxt-link to="/camera">
-<at-button type="primary">Primary Button</at-button>
+<at-button type="primary">Enter </at-button>
       </nuxt-link>
     </div>
   </section>

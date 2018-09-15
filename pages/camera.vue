@@ -5,6 +5,7 @@
 </div>
         <div>
         <at-button v-on:click="textDetection()" >Text Detection</at-button>
+        <at-button style="margin-left: 10px;" type="success" v-on:click="machineLearning()" >Machine Learning Text</at-button>
         <at-button style="margin-left: 10px;" type="primary" v-on:click="labelDetection()" >Label Detection</at-button>
         </div>
         <canvas ref="canvas" id="canvas" width="640" height="480"></canvas>
@@ -66,7 +67,7 @@
         console.log(labels);
         },
 
-    async textDetection(){
+    async machineLearning(){
         let image = this.capture();
         let text = await this.$axios.$post("https://us-central1-lawhack-215604.cloudfunctions.net/function-1",{
             image: {
@@ -96,7 +97,29 @@
 
 
         document.getElementById("result").innerHTML = summary;
-        },        
+        },
+    async textDetection(){
+        let image = this.capture();
+        let text = await this.$axios.$post("https://us-central1-lawhack-215604.cloudfunctions.net/function-1",{
+            image: {
+                content: decodeURIComponent(image)
+            }
+        })
+        console.log("wow",text);
+        // let summary = '<ul>' + 'Summary(key clause): '
+        let summary = "";
+                            
+        text.forEach(element => {
+
+        summary += '<li>' + element.description + '</li>';
+        summary += '</ul>'             
+                     
+            console.log(element.description)
+        });
+
+
+        document.getElementById("result").innerHTML = summary;
+        },         
     }
 
          }
