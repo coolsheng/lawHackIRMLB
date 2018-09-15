@@ -87,10 +87,10 @@
                     else if(element.description === "acquire"||element.description === "indirectly"){
                         summary += '<li>' + "the Company must not acquire or hold any interest in any company engaged, whether directly or indirectly, in any activity set out in Schedule 2." + "</li>"
                     }
-                    else{
-        summary += '<li>' + element.description + '</li>';
-        summary += '</ul>'             
-                    }   
+        //             else{
+        // summary += '<li>' + element.description + '</li>';
+        // summary += '</ul>'             
+        //             }   
             console.log(element.description)
         });
 
