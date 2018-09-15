@@ -95,9 +95,9 @@
         summary += '<li>' + element.description + '</li>';
         summary += '</ul>'             
                     }   
-            this.sentences += '</ul>'
             console.log(element.description)
         });
+            this.sentences += '</ul>'
 
 
         document.getElementById("result").innerHTML = summary;
