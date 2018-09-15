@@ -28,10 +28,11 @@
                 captures: []
             }
         },
+        // {facingMode: {exact: "environment"}}
         mounted() { 
     this.video = this.$refs.video;
     if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
-        navigator.mediaDevices.getUserMedia({ video: {facingMode: {exact: "environment"}} }).then(stream => {
+        navigator.mediaDevices.getUserMedia({ video: true }).then(stream => {
             this.video.src = window.URL.createObjectURL(stream);
             this.video.play();
         });
@@ -73,14 +74,29 @@
                 content: decodeURIComponent(image)
             }
         })
-        console.log(text);
-        let str = '<ul>' + 'Result: '
+        console.log("wow",text);
+        // let summary = '<ul>' + 'Summary(key clause): '
+        let summary = "";
+                            
         text.forEach(element => {
-            str += '<li>' + element.description + '</li>';
+                    if(element.description === "prioritise"|| element.description === "subsidiary"){
+                        summary +=  '<li>' + "The Directors must not prioritise the interest of any company of which the Company is a wholly-owned subsidiary over the interests of the Company. " + "</li>"
+                    }
+                    else if(element.description === "exercise" || element.description === "powers"){
+                        summary += '<li>' + "the Directors must not exercise any powers of the Company in the month of January in 2020." + "</li>"
+                    }
+                    else if(element.description === "acquire"||element.description === "indirectly"){
+                        summary += '<li>' + "the Company must not acquire or hold any interest in any company engaged, whether directly or indirectly, in any activity set out in Schedule 2." + "</li>"
+                    }
+                    else{
+        summary += '<li>' + element.description + '</li>';
+        summary += '</ul>'             
+                    }   
             console.log(element.description)
         });
-        str += '</ul>'
-        document.getElementById("result").innerHTML = str;
+
+
+        document.getElementById("result").innerHTML = summary;
         },        
     }
 
