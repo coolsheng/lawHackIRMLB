@@ -26,7 +26,7 @@
         name: 'app',
         data() {
             return {
-                machine: true,
+                machine: false,
                 sentences: "",
                 video: {},
                 canvas: {},
