@@ -5,13 +5,14 @@
 </div>
         <div>
         <at-button v-on:click="textDetection()" >Text Detection</at-button>
-        <at-button style="margin-left: 10px;" type="success" v-on:click="!machine" >Machine Learning Text</at-button>
+        <at-button style="margin-left: 10px;" type="success" @click="machine = !machine" >Machine Learning Text</at-button>
         <at-button style="margin-left: 10px;" type="primary" v-on:click="labelDetection()" >Label Detection</at-button>
         </div>
         <canvas ref="canvas" id="canvas" width="640" height="480"></canvas>
 <!-- <input type="file" accept="image/*"> -->
     <!-- <img src="" alt=""> -->
-<div id="result" class="steps-content" style="margin-top: 16px; border: 1px solid #e9e9e9; border-radius: 6px;background-color: #fafafa; min-height: 200px; text-align: center; padding-top:10">
+<div class="steps-content" style="margin-top: 16px; border: 1px solid #e9e9e9; border-radius: 6px;background-color: #fafafa; min-height: 200px; text-align: center; padding-top:10">
+    <div v-show="!machine" id= "result"> </div>
    <div v-show="machine">{{sentences}}</div>
 </div>
 
@@ -25,7 +26,7 @@
         name: 'app',
         data() {
             return {
-                machine: false,
+                machine: true,
                 sentences: "",
                 video: {},
                 canvas: {},
