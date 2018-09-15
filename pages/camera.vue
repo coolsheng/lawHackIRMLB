@@ -28,11 +28,10 @@
                 captures: []
             }
         },
-        // {facingMode: {exact: "environment"}}
         mounted() { 
     this.video = this.$refs.video;
     if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
-        navigator.mediaDevices.getUserMedia({ video: true }).then(stream => {
+        navigator.mediaDevices.getUserMedia({ video:  {facingMode: {exact: "environment"}} }).then(stream => {
             this.video.src = window.URL.createObjectURL(stream);
             this.video.play();
         });
