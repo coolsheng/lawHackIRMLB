@@ -82,7 +82,7 @@
                     if(element.description === "prioritise"|| element.description === "subsidiary"){
                         summary +=  '<li>' + "The Directors must not prioritise the interest of any company of which the Company is a wholly-owned subsidiary over the interests of the Company. " + "</li>"
                     }
-                    else if(element.description === "January" || element.description === "month"){
+                    else if(element.description === "January" ){
                         summary += '<li>' + "the Directors must not exercise any powers of the Company in the month of January in 2020." + "</li>"
                     }
                     else if(element.description === "acquire"||element.description === "indirectly"){
